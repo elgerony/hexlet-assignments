@@ -8,10 +8,12 @@ import java.util.List;
 public class App {
     public static Boolean scrabble(String letters, String word)  {
         String[] lettersArr = letters.split("");
+        String[] wordArr = word.toLowerCase().split("");
         List<String> lettersList = Arrays.asList(lettersArr);
+        List<String> wordList = Arrays.asList(word);
         var i = 0;
-        while (i < word.length()) {
-            if (!letters.contains(word.indexOf(i).toLowCase())) {
+        while (i < wordList.size()) {
+            if (!lettersList.contains(wordList.get(i))) {
                 return false;
             }
             i++;
