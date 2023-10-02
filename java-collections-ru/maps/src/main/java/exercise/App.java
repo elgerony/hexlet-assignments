@@ -1,8 +1,5 @@
 package exercise;
 
-import com.sun.jdi.Value;
-
-import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +10,9 @@ public class App {
         Map<String, Integer> occurrences = new HashMap<String, Integer>();
         String[] words = sentence.split(" ");
         for ( String word : words) {
+            if (sentence.isEmpty()) {
+                return new HashMap<>();
+            }
             Integer count = occurrences.get(word);
             if ( count == null ) {
                 count = 0;
@@ -24,13 +24,17 @@ public class App {
     }
 
     public static String toString(Map<String, Integer> occurrences) {
+        if (occurrences.isEmpty()) {
+            return "{}";
+        }
         String result = "";
         for (Map.Entry<String, Integer> entry: occurrences.entrySet()) {
             entry.setValue(entry.getValue());
             result += "  " + entry.getKey() + ": " + entry.getValue() + "\n";
 
         }
-        String newResult = "{\n" + result + "\n}";
+
+        String newResult = "{\n" + result + "}";
         System.out.println(newResult);
         return newResult;
     }
