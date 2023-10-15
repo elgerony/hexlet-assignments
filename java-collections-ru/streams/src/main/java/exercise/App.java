@@ -13,7 +13,7 @@ public class App {
         String host;
         for (String email : emailList) {
 
-            host = email.substring(email.indexOf('@' + 1));
+            host = email.substring(email.indexOf('@') + 1);
             hostList.add(host);
         }
 
